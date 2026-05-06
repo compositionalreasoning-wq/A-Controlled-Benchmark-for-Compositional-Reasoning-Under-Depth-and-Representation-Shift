@@ -48,7 +48,7 @@ def load_data_from_hf(cache_dir):
     })
 
     dataset = load_dataset(
-        "Amartya77/LogicBench",
+        "xyz77/LogicBench",
         split="train",  # Load the train split directly
         features=custom_features,  # Override the default features with the actual ones
         cache_dir=cache_dir,
@@ -291,7 +291,7 @@ def main(base_path, model_name, use_hf=False):
         dataset = load_data_from_hf(base_path + "/datasets")
     else:
         # Use training data with proper corruptions
-        dataset_path = "/home/amartya/Causal_LLM/causality_grammar-DB41/data/train_data_corruptions.parquet"
+        dataset_path = "/home/xyz/Causal_LLM/causality_grammar-DB41/data/train_data_corruptions.parquet"
         
         import os
         if not os.path.exists(dataset_path):
@@ -326,7 +326,7 @@ def main(base_path, model_name, use_hf=False):
     print("Training complete!")
 
     print("Saving Model and Stats......")
-    stats_save_dir_path = f"/home/amartya/Causal_LLM/causality_grammar-DB41/output_logs/{model_name}_repair_v2_training_logs.csv"
+    stats_save_dir_path = f"/home/xyz/Causal_LLM/causality_grammar-DB41/output_logs/{model_name}_repair_v2_training_logs.csv"
     save_stats(history, stats_save_dir_path)
     model_save_dir_path = base_path + f"/models/{model_name}-repair-v2-fullfinetuned"
     save_model(model, tokenizer, trainer, model_save_dir_path)
@@ -334,7 +334,7 @@ def main(base_path, model_name, use_hf=False):
 
 if __name__ == "__main__":
 
-    base_path = "/home/amartya/Causal_LLM/causality_grammar-DB41"  # Update with your path
+    base_path = "/home/xyz/Causal_LLM/causality_grammar-DB41"  # Update with your path
     model_name = "Qwen3-1.7B"
     # model_name = "Llama-3.2-1B-Instruct"
     
